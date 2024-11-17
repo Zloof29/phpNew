@@ -61,18 +61,18 @@ echo "Sum using for loop: " . $sum . "\n";
 echo '<h3>Average Grade</h3>';
 
 $students = [
-    ['name' => 'John', 'grade' => '85'],
-    ['name' => 'Mia', 'grade' => '65'],
-    ['name' => 'Noy', 'grade' => '100'],
-    ['name' => 'Dima', 'grade' => '92'],
-    ['name' => 'Boris', 'grade' => '84'],
+    ['name' => 'John', 'grade' => [65, 78, 95, 48]],
+    ['name' => 'Mia', 'grade' => [62, 85, 82, 67]],
+    ['name' => 'Noy', 'grade' => [100, 90, 94, 93]],
+    ['name' => 'Dima', 'grade' => [92, 58, 86, 87]],
+    ['name' => 'Boris', 'grade' => [100, 100, 95, 87]],
 ];
 
-$sum = 0;
-$numberOfGrades = 0;
-
 foreach ($students as $student) {
-    $sum += $student['grade'];
-    $numberOfGrades = count($students);
+    $name = $student['name'];
+    $grades = $student['grade'];
+
+    $average = array_sum($grades) / count($grades);
+
+    echo "{$name}: Average Grade = {$average} <br />";
 }
-echo "The average is: " . ($sum / $numberOfGrades);
